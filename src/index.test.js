@@ -7,17 +7,20 @@ describe('index', async () => {
   const fixtures = path.join(import.meta.dirname, '../fixtures')
   const config = await import(path.join(fixtures, 'config.js'))
   const input = readFileSync(path.join(fixtures, 'input.json'), 'utf8')
-  const data = JSON.parse(input)
 
   it('create config', async () => {
+    const data = JSON.parse(input)
+
     await expect(config.default(data)).toMatchFileSnapshot(
       path.join(fixtures, 'config.json'),
     )
   })
 
   it('transform', async () => {
-    await expect(
-      transform(config.default(data).rules, data),
-    ).toMatchFileSnapshot(path.join(fixtures, 'output.json'))
+    const data = JSON.parse(input)
+
+    await expect(transform(config.default(data).rules)).toMatchFileSnapshot(
+      path.join(fixtures, 'output.json'),
+    )
   })
 })

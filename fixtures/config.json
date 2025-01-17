@@ -1,12 +1,33 @@
 {
   "rules": {
-    "manifest.json": [Function],
+    "base.json": {
+      "__content__": {
+        "version": 1,
+      },
+    },
+    "manifest.json": {
+      "__content__": {},
+    },
     "profiles": {
       "cat": {
-        "template.html": [Function],
+        "base.json": {
+          "__content__": {
+            "name": "cat",
+          },
+        },
+        "template.html": {
+          "__content__": "<div>cat</div>",
+        },
       },
       "dog": {
-        "template.html": [Function],
+        "base.json": {
+          "__content__": {
+            "name": "dog",
+          },
+        },
+        "template.html": {
+          "__content__": "<div>dog</div>",
+        },
       },
     },
   },

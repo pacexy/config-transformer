@@ -5,9 +5,15 @@
   "manifest.json": {},
   "profiles": {
     "cat": {
+      "base.json": {
+        "name": "cat",
+      },
       "template.html": "<div>cat</div>",
     },
     "dog": {
+      "base.json": {
+        "name": "dog",
+      },
       "template.html": "<div>dog</div>",
     },
   },
