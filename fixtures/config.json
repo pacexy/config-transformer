@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "manifest.json": [Function],
+    "profiles": {
+      "cat": {
+        "template.html": [Function],
+      },
+      "dog": {
+        "template.html": [Function],
+      },
+    },
+  },
+}

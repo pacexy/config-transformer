@@ -1,4 +1,5 @@
 {
+  "version": 1,
   "manifest": {},
   "profiles": [
     {
@@ -9,6 +10,5 @@
       "name": "dog",
       "template": "<div>dog</div>"
     }
-  ],
-  "version": 1
+  ]
 }

@@ -16,7 +16,7 @@ export function transform(createConfig, data) {
   for (const [file, value] of Object.entries(rules)) {
     // getFileContent
     if (typeof value === 'function') {
-      files[file] = value(data)
+      files[file] = value()
       // sub-rules
     } else if (typeof value === 'object') {
       files[file] = transform(() => ({ rules: value }), {})
