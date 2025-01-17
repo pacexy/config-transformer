@@ -3,18 +3,12 @@
     "version": 1,
   },
   "manifest.json": {},
-  "profiles": {
-    "cat": {
-      "base.json": {
-        "name": "cat",
-      },
-      "template.html": "<div>cat</div>",
-    },
-    "dog": {
-      "base.json": {
-        "name": "dog",
-      },
-      "template.html": "<div>dog</div>",
-    },
+  "profiles/cat/base.json": {
+    "name": "cat",
   },
+  "profiles/cat/template.html": "<div>cat</div>",
+  "profiles/dog/base.json": {
+    "name": "dog",
+  },
+  "profiles/dog/template.html": "<div>dog</div>",
 }
