@@ -1,24 +1,32 @@
 /**
  * @typedef {{ rules: Rules }} Config
- * @typedef {{ [x: string]: (s: any) => any }} Rules
+ * @typedef {{ [x: string]: any }} Rules
  */
 
 /**
- * @param {Config} config
- * @param {string} input
+ * @param {(data: { [x: string]: any }) => Config} createConfig
+ * @param {{ [x: string]: any }} data
  */
-export function transform(config, input) {
-  const { rules } = config
-  const data = JSON.parse(input)
+export function transform(createConfig, data) {
+  const { rules } = createConfig(data)
 
   /** @type {{ [x: string]: any }} */
   const files = {}
 
-  for (const [file, getFileContent] of Object.entries(rules)) {
-    const fileContent = getFileContent(data)
-    files[file] = fileContent
+  for (const [file, value] of Object.entries(rules)) {
+    if (typeof value === 'function') {
+      files[file] = value(data)
+    } else if (Array.isArray(value)) {
+      files[file] = value.map((v) => transform(() => ({ rules: v }), {}))
+    } else {
+      files[file] = transform(() => ({ rules: value }), {})
+    }
+    delete data[file]
   }
-  files['base.json'] = data
+
+  if (Object.keys(data).length > 0) {
+    files['base.json'] = data
+  }
 
   return files
 }
