@@ -4,12 +4,10 @@
  */
 
 /**
- * @param {(data: { [x: string]: any }) => Config} createConfig
+ * @param {Rules} rules
  * @param {{ [x: string]: any }} data
  */
-export function transform(createConfig, data) {
-  const { rules } = createConfig(data)
-
+export function transform(rules, data) {
   /** @type {{ [x: string]: any }} */
   const files = {}
 
@@ -19,7 +17,7 @@ export function transform(createConfig, data) {
       files[file] = value()
       // sub-rules
     } else if (typeof value === 'object') {
-      files[file] = transform(() => ({ rules: value }), {})
+      files[file] = transform(value, {})
     } else {
       throw new TypeError('Invalid rule')
     }

@@ -16,8 +16,8 @@ describe('index', async () => {
   })
 
   it('transform', async () => {
-    await expect(transform(config.default, data)).toMatchFileSnapshot(
-      path.join(fixtures, 'output.json'),
-    )
+    await expect(
+      transform(config.default(data).rules, data),
+    ).toMatchFileSnapshot(path.join(fixtures, 'output.json'))
   })
 })
