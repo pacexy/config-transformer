@@ -4,9 +4,11 @@ import { consume } from '../src/utils.js'
 export default {
   rules: {
     'manifest.json': (s) => consume(s, 'manifest'),
-    'profiles/{name}': (s) =>
-      s.profiles.map((/** @type {{ [x: string]: any; }} */ p) => ({
-        'template.html': consume(p, 'template'),
+    profiles: (s) =>
+      consume(s, 'profiles').map((/** @type {{ [x: string]: any; }} */ p) => ({
+        [p.name]: {
+          'template.html': consume(p, 'template'),
+        },
       })),
   },
 }

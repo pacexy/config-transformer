@@ -1,22 +1,18 @@
 {
   "base.json": {
-    "profiles": [
-      {
-        "name": "cat",
-      },
-      {
-        "name": "dog",
-      },
-    ],
     "version": 1,
   },
   "manifest.json": {},
-  "profiles/{name}": [
+  "profiles": [
     {
-      "template.html": "<div>cat</div>",
+      "cat": {
+        "template.html": "<div>cat</div>",
+      },
     },
     {
-      "template.html": "<div>dog</div>",
+      "dog": {
+        "template.html": "<div>dog</div>",
+      },
     },
   ],
 }

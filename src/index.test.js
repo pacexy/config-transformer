@@ -9,7 +9,7 @@ describe('index', () => {
     const config = await import(path.join(fixtures, 'config.js'))
     const input = readFileSync(path.join(fixtures, 'input.json'), 'utf8')
 
-    expect(transform(config.default, input)).toMatchFileSnapshot(
+    await expect(transform(config.default, input)).toMatchFileSnapshot(
       path.join(fixtures, 'output.json'),
     )
   })

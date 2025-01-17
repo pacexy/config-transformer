@@ -14,9 +14,9 @@ export function transform(config, input) {
   /** @type {{ [x: string]: any }} */
   const files = {}
 
-  for (const [filePattern, getFileContent] of Object.entries(rules)) {
+  for (const [file, getFileContent] of Object.entries(rules)) {
     const fileContent = getFileContent(data)
-    files[filePattern] = fileContent
+    files[file] = fileContent
   }
   files['base.json'] = data
 
