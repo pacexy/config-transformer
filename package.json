@@ -12,6 +12,17 @@
   "license": "MIT",
   "author": "pacexy <pacexy@gmail.com>",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/index.js"
+    },
+    "./utils": {
+      "import": "./src/utils.js"
+    }
+  },
+  "files": [
+    "src"
+  ],
   "scripts": {
     "dev": "vitest",
     "format": "prettier --write .",
