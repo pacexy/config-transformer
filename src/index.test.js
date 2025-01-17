@@ -1,13 +1,16 @@
-import { builtinModules } from 'node:module'
+import { readFileSync } from 'node:fs'
+import path from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { filename } from './index.js'
+import { transform } from './index.js'
 
 describe('index', () => {
-  it('should return filename', () => {
-    expect(filename).toMatchInlineSnapshot(`"index.js"`)
-  })
+  it('transform', async () => {
+    const fixtures = path.join(import.meta.dirname, '../fixtures')
+    const config = await import(path.join(fixtures, 'config.js'))
+    const input = readFileSync(path.join(fixtures, 'input.json'), 'utf8')
 
-  it('should return length of builtin modules', () => {
-    expect(builtinModules.length).toMatchInlineSnapshot(`68`)
+    expect(transform(config.default, input)).toMatchFileSnapshot(
+      path.join(fixtures, 'output.json'),
+    )
   })
 })

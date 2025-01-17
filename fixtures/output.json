@@ -1,0 +1,22 @@
+{
+  "base.json": {
+    "profiles": [
+      {
+        "name": "cat",
+      },
+      {
+        "name": "dog",
+      },
+    ],
+    "version": 1,
+  },
+  "manifest.json": {},
+  "profiles/{name}": [
+    {
+      "template.html": "<div>cat</div>",
+    },
+    {
+      "template.html": "<div>dog</div>",
+    },
+  ],
+}

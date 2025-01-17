@@ -1,0 +1,14 @@
+{
+  "manifest": {},
+  "profiles": [
+    {
+      "name": "cat",
+      "template": "<div>cat</div>"
+    },
+    {
+      "name": "dog",
+      "template": "<div>dog</div>"
+    }
+  ],
+  "version": 1
+}
