@@ -3,16 +3,12 @@
     "version": 1,
   },
   "manifest.json": {},
-  "profiles": [
-    {
-      "cat": {
-        "template.html": "<div>cat</div>",
-      },
+  "profiles": {
+    "cat": {
+      "template.html": "<div>cat</div>",
     },
-    {
-      "dog": {
-        "template.html": "<div>dog</div>",
-      },
+    "dog": {
+      "template.html": "<div>dog</div>",
     },
-  ],
+  },
 }

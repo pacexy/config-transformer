@@ -14,12 +14,14 @@ export function transform(createConfig, data) {
   const files = {}
 
   for (const [file, value] of Object.entries(rules)) {
+    // getFileContent
     if (typeof value === 'function') {
       files[file] = value(data)
-    } else if (Array.isArray(value)) {
-      files[file] = value.map((v) => transform(() => ({ rules: v }), {}))
-    } else {
+      // sub-rules
+    } else if (typeof value === 'object') {
       files[file] = transform(() => ({ rules: value }), {})
+    } else {
+      throw new TypeError('Invalid rule')
     }
     delete data[file]
   }
