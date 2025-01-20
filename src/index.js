@@ -1,5 +1,5 @@
 import path from 'node:path/posix'
-import { isFile } from './utils.js'
+import { detectFileForm } from './utils.js'
 
 /**
  * @typedef {{ rules: Rules }} Config
@@ -14,11 +14,12 @@ import { isFile } from './utils.js'
 export function transform(rules, baseUrl = '', files = {}) {
   for (const [file, value] of Object.entries(rules)) {
     const url = path.join(baseUrl, file)
+    const fileForm = detectFileForm(file)
 
-    if (isFile(file)) {
-      files[url] = value
+    if (fileForm === 'file') {
+      files[url] = value // value of the file is the content
     } else {
-      transform(value, url, files)
+      transform(value, url, files) // value of the directory is the rules
     }
   }
 

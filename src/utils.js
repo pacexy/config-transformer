@@ -11,6 +11,6 @@ export function consume(object, property) {
 /**
  * @param {string} filename
  */
-export function isFile(filename) {
-  return filename.includes('.')
+export function detectFileForm(filename) {
+  return filename.includes('.') ? 'file' : 'directory'
 }
