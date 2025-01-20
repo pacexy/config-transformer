@@ -1,33 +1,21 @@
 {
   "rules": {
     "base.json": {
-      "__content__": {
-        "version": 1,
-      },
+      "version": 1,
     },
-    "manifest.json": {
-      "__content__": {},
-    },
+    "manifest.json": {},
     "profiles": {
       "cat": {
         "base.json": {
-          "__content__": {
-            "name": "cat",
-          },
+          "name": "cat",
         },
-        "template.html": {
-          "__content__": "<div>cat</div>",
-        },
+        "template.html": "<div>cat</div>",
       },
       "dog": {
         "base.json": {
-          "__content__": {
-            "name": "dog",
-          },
+          "name": "dog",
         },
-        "template.html": {
-          "__content__": "<div>dog</div>",
-        },
+        "template.html": "<div>dog</div>",
       },
     },
   },
